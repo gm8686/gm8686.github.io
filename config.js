@@ -10,5 +10,5 @@ window.BQ_CONFIG = {
    *   - Render:    "https://bruin-quants-backend.onrender.com"
    *   - Railway:   "https://bruin-quants-production.up.railway.app"
    */
-  API_BASE_URL: "http://gm8686.github.io"
+  API_BASE_URL: "http://localhost:3000"
 };
