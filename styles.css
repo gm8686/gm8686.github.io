@@ -1101,3 +1101,83 @@ textarea:focus {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* Members portal lock screen */
+
+.portal-lock {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 7, 18, 0.96);
+  backdrop-filter: blur(18px);
+  z-index: 80;
+}
+
+.portal-lock-panel {
+  width: 100%;
+  max-width: 360px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: rgba(3, 7, 18, 0.98);
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.portal-lock-title {
+  font-size: 18px;
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+}
+
+.portal-lock-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.portal-lock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.portal-lock-error {
+  font-size: 12px;
+  color: #f97373;
+  min-height: 16px;
+}
+
+.portal-lock-meta {
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.portal-main-hidden {
+  display: none;
+}
+
+.portal-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.portal-toolbar h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.portal-logout-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(15, 23, 42, 0.98);
+  color: var(--text-muted);
+  padding: 6px 12px;
+  font-size: 11px;
+  cursor: pointer;
+}
