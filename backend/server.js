@@ -16,6 +16,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Target inbox (default is the founder's email if env not set)
+const TARGET_EMAIL = process.env.BQ_TARGET_EMAIL || "gmckellips86@gmail.com";
+
 app.post("/api/apply", upload.single("resume"), async (req, res) => {
   try {
     const {
@@ -66,7 +69,7 @@ app.post("/api/apply", upload.single("resume"), async (req, res) => {
 
     const mailOptions = {
       from: `"Bruin Quants Applications" <${process.env.BQ_EMAIL_USER}>`,
-      to: "gmckellips86@gmail.com",
+      to: TARGET_EMAIL,
       subject: `New Bruin Quants Application – ${name}`,
       text: lines.join("\n"),
       attachments: resumeFile
