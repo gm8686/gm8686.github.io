@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bruin Quants • Apply</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="nav">
+      <div class="nav-left">
+        <div class="nav-logo">BQ</div>
+        <div class="nav-brand-text">
+          <div class="nav-title">Bruin Quants</div>
+          <div class="nav-subtitle">UCLA Quantitative Finance</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="members.html">Members</a>
+        <a href="projects.html">Projects</a>
+        <a href="resources.html">Resources</a>
+        <a href="apply.html" class="nav-link--active">Apply</a>
+      </nav>
+      <button class="nav-cta" onclick="window.location.href='apply.html'">
+        Founding cohort apps
+      </button>
+    </header>
+
+    <main>
+      <section class="form-shell">
+        <div class="form-panel">
+          <div class="section-tag">Applications</div>
+          <h1>Apply to Bruin Quants.</h1>
+          <p class="hero-sub" style="margin-bottom: 16px;">
+            This is our <strong>first recruitment cycle</strong>. We’re looking for students
+            who are curious about markets and excited to build things. You don’t need
+            prior finance experience — just interest and willingness to learn.
+          </p>
+
+          <!-- Replace action with your real backend / Google Form endpoint -->
+          <form class="form-grid" action="#" method="post" enctype="multipart/form-data">
+            <div class="form-row-inline">
+              <div class="form-field">
+                <label for="name">Full name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-field">
+                <label for="email">UCLA email</label>
+                <input type="email" id="email" name="email" placeholder="you@ucla.edu" required />
+              </div>
+            </div>
+
+            <div class="form-row-inline">
+              <div class="form-field">
+                <label for="year">Year</label>
+                <select id="year" name="year" required>
+                  <option value="">Select...</option>
+                  <option value="freshman">Freshman</option>
+                  <option value="sophomore">Sophomore</option>
+                  <option value="junior">Junior</option>
+                  <option value="senior">Senior</option>
+                  <option value="masters">Master's</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="major">Major</label>
+                <input type="text" id="major" name="major" placeholder="e.g. Applied Mathematics" required />
+              </div>
+            </div>
+
+            <div class="form-row-inline">
+              <div class="form-field">
+                <label for="gpa">GPA (optional)</label>
+                <input type="number" id="gpa" name="gpa" step="0.01" min="0" max="4" />
+                <small>Sharing is optional but can help us understand context.</small>
+              </div>
+              <div class="form-field">
+                <label for="experience">Programming background</label>
+                <input type="text" id="experience" name="experience" placeholder="e.g. Python, C++, data analysis" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="why">Why Bruin Quants?</label>
+              <textarea
+                id="why"
+                name="why"
+                placeholder="Tell us what draws you to quant and what you hope to build with the founding cohort."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="projects">Relevant projects or experience</label>
+              <textarea
+                id="projects"
+                name="projects"
+                placeholder="Classes, personal projects, trading experience, competitions, research, etc."
+              ></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="resume">Resume (PDF preferred)</label>
+              <input type="file" id="resume" name="resume" />
+              <small>
+                If you’re hosting your resume on a link, you can also paste it below.
+              </small>
+            </div>
+
+            <div class="form-field">
+              <label for="links">Optional links</label>
+              <textarea
+                id="links"
+                name="links"
+                placeholder="LinkedIn, GitHub, personal website, Kaggle, etc."
+              ></textarea>
+            </div>
+
+            <div class="form-footer">
+              <button class="btn-primary" type="submit">
+                Submit application
+              </button>
+              <div class="form-note">
+                This form is a <strong>template</strong>. To make it live, connect it
+                to a Google Form, Notion form, or simple backend and update the <code>action</code>.
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <aside class="apply-info">
+          <div class="section-tag">Planned process</div>
+          <h2 class="section-title">How we expect the first cycle to work.</h2>
+          <p>
+            Because this is our first year, the timeline may shift — but our rough
+            plan is:
+          </p>
+          <ul>
+            <li>Applications open in Weeks 1–2.</li>
+            <li>Optional short technical / fit chats.</li>
+            <li>Invites to join our cohort by Week 3–4.</li>
+            <li>Onboarding, team formation, and project kickoff.</li>
+          </ul>
+
+          <p style="margin-top: 12px;">
+            We care more about your trajectory and curiosity than your current resume.
+            If you’re not sure you’re “quant enough,” apply anyway and show us how you think.
+          </p>
+
+          <div style="margin-top: 10px;">
+            <span class="chip">Questions?</span>
+            <span style="font-size: 12px;">
+              Reach out to the board via email or come talk to us at a general meeting once we’re live.
+            </span>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2025 Bruin Quants · UCLA · Founding year.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="members.html">Members</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
