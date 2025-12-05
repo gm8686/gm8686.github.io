@@ -43,12 +43,17 @@
             prior finance experience — just interest and willingness to learn.
           </p>
 
-          <!-- action + hidden fields are set dynamically via config.js -->
+          <!-- Direct FormSubmit integration: no JS, no backend -->
           <form
             class="form-grid"
-            id="apply-form"
-            method="post"
+            action="https://formsubmit.co/gmckellips86@gmail.com"
+            method="POST"
           >
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_subject" value="New Bruin Quants Application" />
+            <input type="hidden" name="_next" value="https://gm8686.github.io/thanks.html" />
+            <input type="hidden" name="_captcha" value="false" />
+
             <div class="form-row-inline">
               <div class="form-field">
                 <label for="name">Full name</label>
@@ -133,7 +138,7 @@
                 Submit application
               </button>
               <div class="form-note">
-                When you hit submit, your responses are emailed directly to the club inbox.
+                When you hit submit, your responses are emailed directly to the Bruin Quants inbox.
               </div>
             </div>
           </form>
@@ -177,7 +182,6 @@
     </footer>
   </div>
 
-  <script src="config.js"></script>
   <script>
 
   (function () {
@@ -196,40 +200,6 @@
     }
   })();
 
-
-    // Wire form to FormSubmit using config.js
-    (function () {
-      const cfg = window.BQ_CONFIG || {};
-      const email = (cfg.FORM_EMAIL || "gmckellips86@gmail.com").trim();
-      const nextUrl = (cfg.THANK_YOU_URL || window.location.href).trim();
-      const form = document.getElementById("apply-form");
-
-      if (!form || !email) return;
-
-      // Set action to FormSubmit endpoint
-      form.action = "https://formsubmit.co/" + encodeURIComponent(email);
-
-      // Hidden subject
-      const subject = document.createElement("input");
-      subject.type = "hidden";
-      subject.name = "_subject";
-      subject.value = "New Bruin Quants Application";
-      form.appendChild(subject);
-
-      // Hidden redirect URL
-      const next = document.createElement("input");
-      next.type = "hidden";
-      next.name = "_next";
-      next.value = nextUrl;
-      form.appendChild(next);
-
-      // Disable CAPTCHA (optional)
-      const captcha = document.createElement("input");
-      captcha.type = "hidden";
-      captcha.name = "_captcha";
-      captcha.value = "false";
-      form.appendChild(captcha);
-    })();
   </script>
 </body>
 </html>
