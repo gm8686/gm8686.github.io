@@ -43,10 +43,10 @@
             prior finance experience — just interest and willingness to learn.
           </p>
 
-          <!-- Update this action to your deployed backend URL when ready -->
+          <!-- action is set dynamically via config.js -->
           <form
             class="form-grid"
-            action="http://localhost:3000/api/apply"
+            id="apply-form"
             method="post"
             enctype="multipart/form-data"
           >
@@ -132,8 +132,8 @@
                 Submit application
               </button>
               <div class="form-note">
-                This form posts to a simple Node backend that emails applications to the club.
-                Update the <code>action</code> URL once you deploy it.
+                The form endpoint is controlled by <code>config.js</code>.
+                Edit that file to point to your deployed backend.
               </div>
             </div>
           </form>
@@ -177,6 +177,7 @@
     </footer>
   </div>
 
+  <script src="config.js"></script>
   <script>
 
   (function () {
@@ -195,6 +196,20 @@
     }
   })();
 
+
+    // Dynamically set form action from config
+    (function () {
+      const cfg = window.BQ_CONFIG || {};
+      const base = (cfg.API_BASE_URL || "").replace(/\/+$/, "");
+      const form = document.getElementById("apply-form");
+
+      // Fallback placeholder if config is missing
+      const fallback = "https://example.com";
+
+      if (form) {
+        form.action = (base || fallback) + "/api/apply";
+      }
+    })();
   </script>
 </body>
 </html>
