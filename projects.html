@@ -16,6 +16,10 @@
           <div class="nav-subtitle">UCLA Quantitative Finance</div>
         </div>
       </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="members.html">Members</a>
@@ -58,10 +62,10 @@
 
           <article class="card">
             <div class="card-label">Track B • Stat arb</div>
-            <h3 class="card-title">Pairs & cross‑sectional signals</h3>
+            <h3 class="card-title">Pairs & cross-sectional signals</h3>
             <p class="card-body">
               Explore mean reversion and relative value strategies on equities
-              or ETFs using free or student‑accessible datasets. Emphasis on
+              or ETFs using free or student-accessible datasets. Emphasis on
               clean code and careful assumptions.
             </p>
           </article>
@@ -116,7 +120,7 @@
             <div class="timeline-item">
               <div class="timeline-title">Week 7–8 · Polish & presentation</div>
               <div class="timeline-meta">
-                Prepare slides/dashboards, stress‑test assumptions, and present
+                Prepare slides/dashboards, stress-test assumptions, and present
                 to the club or invited mentors for feedback.
               </div>
             </div>
@@ -134,5 +138,25 @@
       </div>
     </footer>
   </div>
+
+  <script>
+
+  (function () {
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const navCta = document.querySelector(".nav-cta");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-links--open");
+        if (navCta) {
+          navCta.classList.toggle("nav-cta--open");
+        }
+        navToggle.classList.toggle("nav-toggle--open");
+      });
+    }
+  })();
+
+  </script>
 </body>
 </html>

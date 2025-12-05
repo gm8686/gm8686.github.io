@@ -16,6 +16,10 @@
           <div class="nav-subtitle">UCLA Quantitative Finance</div>
         </div>
       </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="members.html">Members</a>
@@ -39,8 +43,13 @@
             prior finance experience — just interest and willingness to learn.
           </p>
 
-          <!-- Replace action with your real backend / Google Form endpoint -->
-          <form class="form-grid" action="#" method="post" enctype="multipart/form-data">
+          <!-- Update this action to your deployed backend URL when ready -->
+          <form
+            class="form-grid"
+            action="http://localhost:3000/api/apply"
+            method="post"
+            enctype="multipart/form-data"
+          >
             <div class="form-row-inline">
               <div class="form-field">
                 <label for="name">Full name</label>
@@ -123,8 +132,8 @@
                 Submit application
               </button>
               <div class="form-note">
-                This form is a <strong>template</strong>. To make it live, connect it
-                to a Google Form, Notion form, or simple backend and update the <code>action</code>.
+                This form posts to a simple Node backend that emails applications to the club.
+                Update the <code>action</code> URL once you deploy it.
               </div>
             </div>
           </form>
@@ -167,5 +176,25 @@
       </div>
     </footer>
   </div>
+
+  <script>
+
+  (function () {
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const navCta = document.querySelector(".nav-cta");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-links--open");
+        if (navCta) {
+          navCta.classList.toggle("nav-cta--open");
+        }
+        navToggle.classList.toggle("nav-toggle--open");
+      });
+    }
+  })();
+
+  </script>
 </body>
 </html>

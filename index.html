@@ -16,6 +16,10 @@
           <div class="nav-subtitle">UCLA Quantitative Finance</div>
         </div>
       </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav-links">
         <a href="index.html" class="nav-link--active">Home</a>
         <a href="members.html">Members</a>
@@ -43,7 +47,7 @@
           </h1>
 
           <p class="hero-sub">
-            Bruin Quants is a brand‑new student organization for Bruins interested in
+            Bruin Quants is a brand-new student organization for Bruins interested in
             <strong>quantitative finance, systematic trading, and financial engineering</strong>.
             We’re building a space to learn, experiment, and recruit for top hedge funds,
             trading firms, and quant groups — starting with our founding cohort.
@@ -105,7 +109,7 @@
                 <div class="metric-label">Founding interest</div>
                 <div class="metric-value">Target: 20–30 members</div>
                 <div class="metric-trend">
-                  Based on early sign‑ups & interest forms.
+                  Based on early sign-ups & interest forms.
                 </div>
               </div>
               <div class="metric-card">
@@ -140,9 +144,9 @@
         <div class="card-grid">
           <article class="card">
             <div class="card-label">01 • Technical labs</div>
-            <h3 class="card-title">Hands‑on quant experimentation</h3>
+            <h3 class="card-title">Hands-on quant experimentation</h3>
             <p class="card-body">
-              We’ll start with small, well‑scoped projects: backtests, data
+              We’ll start with small, well-scoped projects: backtests, data
               explorations, and microstructure demos that you can reproduce on
               your own laptop with public data.
             </p>
@@ -163,7 +167,7 @@
             <h3 class="card-title">A focused, curious cohort</h3>
             <p class="card-body">
               As a founding member, you help set the culture: collaborative,
-              serious about learning, but low‑ego and supportive.
+              serious about learning, but low-ego and supportive.
             </p>
           </article>
         </div>
@@ -201,8 +205,8 @@
           <article class="card">
             <h3 class="card-title">Where we’re going</h3>
             <p class="card-body">
-              Long‑term, we’d love firms to recognize Bruin Quants as a talent pipeline.
-              Short‑term, we’re focused on learning and shipping our first few projects.
+              Long-term, we’d love firms to recognize Bruin Quants as a talent pipeline.
+              Short-term, we’re focused on learning and shipping our first few projects.
             </p>
           </article>
         </div>
@@ -249,7 +253,7 @@
             <div class="event-main">
               <div class="event-title">Quant Interview Practice Night</div>
               <div class="event-meta">
-                Mid‑quarter • Brainteasers, probability, and mental math in small groups.
+                Mid-quarter • Brainteasers, probability, and mental math in small groups.
               </div>
             </div>
             <div class="event-tag">Prep</div>
@@ -261,18 +265,18 @@
       <section class="ticker" aria-label="Mock strategy performance strip">
         <div class="ticker-label">Sample strategy tape (paper)</div>
         <div class="ticker-track">
-          <div class="ticker-item"><span class="code">SPY‑MOM</span><span class="pct">+1.3%</span> 20d paper PnL</div>
-          <div class="ticker-item"><span class="code">STAT‑ARB</span><span class="pct">+0.8%</span> 90d Sharpe 1.9 (backtest)</div>
-          <div class="ticker-item"><span class="code">VOL‑SURF</span><span class="pct">+0.4%</span> skew monitor demo</div>
-          <div class="ticker-item"><span class="code">ML‑ALPHA</span><span class="pct">+0.2%</span> toy classifier</div>
+          <div class="ticker-item"><span class="code">SPY-MOM</span><span class="pct">+1.3%</span> 20d paper PnL</div>
+          <div class="ticker-item"><span class="code">STAT-ARB</span><span class="pct">+0.8%</span> 90d Sharpe 1.9 (backtest)</div>
+          <div class="ticker-item"><span class="code">VOL-SURF</span><span class="pct">+0.4%</span> skew monitor demo</div>
+          <div class="ticker-item"><span class="code">ML-ALPHA</span><span class="pct">+0.2%</span> toy classifier</div>
           <div class="ticker-item"><span class="code">LATENCY</span><span class="pct">-0.3ms</span> sim improvement</div>
           <div class="ticker-item"><span class="code">RISK</span><span class="pct">flat</span> demo constraints</div>
 
           <!-- duplicate for smooth loop -->
-          <div class="ticker-item"><span class="code">SPY‑MOM</span><span class="pct">+1.3%</span> 20d paper PnL</div>
-          <div class="ticker-item"><span class="code">STAT‑ARB</span><span class="pct">+0.8%</span> 90d Sharpe 1.9 (backtest)</div>
-          <div class="ticker-item"><span class="code">VOL‑SURF</span><span class="pct">+0.4%</span> skew monitor demo</div>
-          <div class="ticker-item"><span class="code">ML‑ALPHA</span><span class="pct">+0.2%</span> toy classifier</div>
+          <div class="ticker-item"><span class="code">SPY-MOM</span><span class="pct">+1.3%</span> 20d paper PnL</div>
+          <div class="ticker-item"><span class="code">STAT-ARB</span><span class="pct">+0.8%</span> 90d Sharpe 1.9 (backtest)</div>
+          <div class="ticker-item"><span class="code">VOL-SURF</span><span class="pct">+0.4%</span> skew monitor demo</div>
+          <div class="ticker-item"><span class="code">ML-ALPHA</span><span class="pct">+0.2%</span> toy classifier</div>
           <div class="ticker-item"><span class="code">LATENCY</span><span class="pct">-0.3ms</span> sim improvement</div>
           <div class="ticker-item"><span class="code">RISK</span><span class="pct">flat</span> demo constraints</div>
         </div>
@@ -288,5 +292,25 @@
       </div>
     </footer>
   </div>
+
+  <script>
+
+  (function () {
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const navCta = document.querySelector(".nav-cta");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-links--open");
+        if (navCta) {
+          navCta.classList.toggle("nav-cta--open");
+        }
+        navToggle.classList.toggle("nav-toggle--open");
+      });
+    }
+  })();
+
+  </script>
 </body>
 </html>

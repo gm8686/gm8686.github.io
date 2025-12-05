@@ -16,6 +16,10 @@
           <div class="nav-subtitle">UCLA Quantitative Finance</div>
         </div>
       </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="members.html">Members</a>
@@ -38,7 +42,7 @@
               A curated starting point for learning quantitative finance,
               brushing up on probability, and preparing for interviews.
               As the club grows, you can replace these bullets with specific
-              PDFs, notes, and internal write‑ups.
+              PDFs, notes, and internal write-ups.
             </p>
           </div>
           <div class="section-aux-link">
@@ -51,7 +55,7 @@
             <div class="card-label">Foundations</div>
             <h3 class="card-title">Math & probability</h3>
             <ul>
-              <li>Measure‑lite probability, conditional expectation, and martingales.</li>
+              <li>Measure-lite probability, conditional expectation, and martingales.</li>
               <li>Linear algebra refresh — eigenvalues, projections, SVD.</li>
               <li>Optimization basics: gradients, convexity, Lagrangians.</li>
             </ul>
@@ -62,7 +66,7 @@
             <h3 class="card-title">Practical coding stack</h3>
             <ul>
               <li>Python for data & backtesting (NumPy, pandas, matplotlib).</li>
-              <li>C++ for performance‑critical components.</li>
+              <li>C++ for performance-critical components.</li>
               <li>Git/GitHub for collaboration and version control.</li>
             </ul>
           </article>
@@ -145,5 +149,25 @@
       </div>
     </footer>
   </div>
+
+  <script>
+
+  (function () {
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const navCta = document.querySelector(".nav-cta");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-links--open");
+        if (navCta) {
+          navCta.classList.toggle("nav-cta--open");
+        }
+        navToggle.classList.toggle("nav-toggle--open");
+      });
+    }
+  })();
+
+  </script>
 </body>
 </html>

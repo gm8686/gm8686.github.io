@@ -16,6 +16,10 @@
           <div class="nav-subtitle">UCLA Quantitative Finance</div>
         </div>
       </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="members.html" class="nav-link--active">Members</a>
@@ -34,7 +38,7 @@
           <div class="section-tag">People</div>
           <h1>Founding members & future cohorts.</h1>
           <p>
-            As a brand‑new club, this roster will evolve quickly.
+            As a brand-new club, this roster will evolve quickly.
             The board below represents our initial leadership team; active members
             will be added as we run our first recruitment cycle.
           </p>
@@ -177,6 +181,24 @@
   </div>
 
   <script>
+
+  (function () {
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const navCta = document.querySelector(".nav-cta");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-links--open");
+        if (navCta) {
+          navCta.classList.toggle("nav-cta--open");
+        }
+        navToggle.classList.toggle("nav-toggle--open");
+      });
+    }
+  })();
+
+
     // Simple filter logic for board / active / all
     const filterChips = document.querySelectorAll(".filter-chip");
     const memberCards = document.querySelectorAll(".member-card");
