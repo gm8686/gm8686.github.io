@@ -43,12 +43,11 @@
             prior finance experience — just interest and willingness to learn.
           </p>
 
-          <!-- action is set dynamically via config.js -->
+          <!-- action + hidden fields are set dynamically via config.js -->
           <form
             class="form-grid"
             id="apply-form"
             method="post"
-            enctype="multipart/form-data"
           >
             <div class="form-row-inline">
               <div class="form-field">
@@ -111,15 +110,17 @@
             </div>
 
             <div class="form-field">
-              <label for="resume">Resume (PDF preferred)</label>
-              <input type="file" id="resume" name="resume" />
-              <small>
-                If you’re hosting your resume on a link, you can also paste it below.
-              </small>
+              <label for="resume_link">Resume / CV link</label>
+              <input
+                type="text"
+                id="resume_link"
+                name="resume_link"
+                placeholder="Link to your resume (Google Drive, Dropbox, personal site, etc.)"
+              />
             </div>
 
             <div class="form-field">
-              <label for="links">Optional links</label>
+              <label for="links">Additional links</label>
               <textarea
                 id="links"
                 name="links"
@@ -132,8 +133,7 @@
                 Submit application
               </button>
               <div class="form-note">
-                The form endpoint is controlled by <code>config.js</code>.
-                Edit that file to point to your deployed backend.
+                When you hit submit, your responses are emailed directly to the club inbox.
               </div>
             </div>
           </form>
@@ -197,18 +197,38 @@
   })();
 
 
-    // Dynamically set form action from config
+    // Wire form to FormSubmit using config.js
     (function () {
       const cfg = window.BQ_CONFIG || {};
-      const base = (cfg.API_BASE_URL || "").replace(/\/+$/, "");
+      const email = (cfg.FORM_EMAIL || "gmckellips86@gmail.com").trim();
+      const nextUrl = (cfg.THANK_YOU_URL || window.location.href).trim();
       const form = document.getElementById("apply-form");
 
-      // Fallback placeholder if config is missing
-      const fallback = "https://example.com";
+      if (!form || !email) return;
 
-      if (form) {
-        form.action = (base || fallback) + "/api/apply";
-      }
+      // Set action to FormSubmit endpoint
+      form.action = "https://formsubmit.co/" + encodeURIComponent(email);
+
+      // Hidden subject
+      const subject = document.createElement("input");
+      subject.type = "hidden";
+      subject.name = "_subject";
+      subject.value = "New Bruin Quants Application";
+      form.appendChild(subject);
+
+      // Hidden redirect URL
+      const next = document.createElement("input");
+      next.type = "hidden";
+      next.name = "_next";
+      next.value = nextUrl;
+      form.appendChild(next);
+
+      // Disable CAPTCHA (optional)
+      const captcha = document.createElement("input");
+      captcha.type = "hidden";
+      captcha.name = "_captcha";
+      captcha.value = "false";
+      form.appendChild(captcha);
     })();
   </script>
 </body>
